@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">614526788981-qlpf501hkdgu9mk5mf0s0p0h0mvvihmr.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://login-ce6ce.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">614526788981</string>
+    <string name="google_api_key" translatable="false">AIzaSyCTBvnWKWo1x8sCJygSaQznGTH3eAjetV0</string>
+    <string name="google_app_id" translatable="false">1:614526788981:android:7738fe742be9f442</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCTBvnWKWo1x8sCJygSaQznGTH3eAjetV0</string>
+    <string name="google_storage_bucket" translatable="false">login-ce6ce.appspot.com</string>
+    <string name="project_id" translatable="false">login-ce6ce</string>
+</resources>
