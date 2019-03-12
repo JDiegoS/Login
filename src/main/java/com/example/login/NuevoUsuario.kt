@@ -44,6 +44,8 @@ class NuevoUsuario : AppCompatActivity() {
 
         dbReference=database.reference.child("User")
 
+        Toast.makeText(this,"Correo enviado",Toast.LENGTH_LONG).show()
+
     }
 
     fun register(view: View){
@@ -57,22 +59,27 @@ class NuevoUsuario : AppCompatActivity() {
         val email:String=email.text.toString()
         val password:String=password.text.toString()
 
-        if(!TextUtils.isEmpty(name) &&!TextUtils.isEmpty(user) &&!TextUtils.isEmpty(email) &&!TextUtils.isEmpty(password))
+        if(!TextUtils.isEmpty(name) &&!TextUtils.isEmpty(user) &&!TextUtils.isEmpty(email) &&!TextUtils.isEmpty(password)){
+                progressBar.visibility=View.VISIBLE
 
-            progressBar.visibility=View.VISIBLE
-        auth.createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this){
-                task ->
-                if(task.isComplete){
-                    val user:FirebaseUser?=auth.currentUser
-                    verifyEmail(user)
+            auth.createUserWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(this){
+                        task ->
+                        if(task.isComplete){
+                            val user:FirebaseUser?=auth.currentUser
+                            verifyEmail(user)
 
-                    val userBD=dbReference.child(user?.uid)
-                    userBD.child("Name").setValue(name)
-                    userBD.child("User").setValue(user)
-                    action()
+
+                            val userBD=dbReference.child(user?.uid!!)
+                            userBD.child("Name").setValue(name)
+                            userBD.child("User").setValue(user)
+                            action()
+                    }
                 }
-            }
+        }
+
+
+
     }
     private fun action(){
         startActivity(Intent(this,LoginActivity::class.java))
